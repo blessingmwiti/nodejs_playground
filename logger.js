@@ -1,9 +1,13 @@
+const EventEmitter = require('events');
+
 console.log(__filename);
 console.log(__dirname);
 
-
-function add(a, b){
-    console.log(a + b);
+class Logger extends EventEmitter {
+    add(a, b){
+        console.log(a + b);
+        this.emit('add');
+    }
 }
 
-module.exports = add;
+module.exports = Logger;
